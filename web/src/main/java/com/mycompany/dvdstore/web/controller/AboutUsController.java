@@ -1,12 +1,8 @@
 package com.mycompany.dvdstore.web.controller;
 
-import com.mycompany.dvdstore.core.entity.Movie;
 import com.mycompany.dvdstore.core.service.DefaultMovieService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AboutUsController {
@@ -21,7 +17,7 @@ public class AboutUsController {
         return movieService;
     }
 
-    @RequestMapping("/about-us")
+    @GetMapping("/about-us")
     public String displayAboutUs() {
         System.out.println("Tentative d'affichage de à-propos");
         return "about-us";

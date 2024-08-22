@@ -9,6 +9,8 @@ import java.util.List;
 //@Repository
 public class MemoryMovieRepository implements MovieRepositoryInterface {
 
+    private static long lastNumber=0L;
+
     private MemoryMovieRepository movieRepository;
 
     public MemoryMovieRepository getMovieRepository() {

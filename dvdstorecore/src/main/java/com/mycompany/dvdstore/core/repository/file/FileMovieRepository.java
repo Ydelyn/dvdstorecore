@@ -34,8 +34,7 @@ public class FileMovieRepository implements MovieRepositoryInterface {
         FileWriter writer;
         try{
             writer=new FileWriter(file,true);
-            writer.write(movie.getTitle() + ';' + movie.getGenre() + "\n");
-            writer.close();
+            writer.write(movie.getId()+";"+movie.getTitle()+";"+movie.getGenre()+";"+movie.getDescription()+"\n");            writer.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -64,7 +63,8 @@ public class FileMovieRepository implements MovieRepositoryInterface {
     @Override
     public Movie getById(Long id) {
         final Movie movie = new Movie();
-        movie.setId(id);
+        long lastId=list().stream().map(Movie::getId).max(Long::compare).orElse(0L);
+        movie.setId(lastId+1);
         try(BufferedReader br = new BufferedReader(new FileReader(file))) {
             for(String line; (line = br.readLine()) != null; ) {
 

@@ -24,7 +24,6 @@ public class HomeController {
     @RequestMapping("/dvdstore-home")
     public @ModelAttribute("movies") List<Movie> displayHome() {
         System.out.println("Tentative d'affichage de l'accueil");
-        List<Movie> movies = movieService.getMovieList();
-        return movies;
+        return movieService.getMovieList();
     }
 }

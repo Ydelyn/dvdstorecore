@@ -6,9 +6,11 @@
 </head>
 <body>
     <h1>DVDStore - Home</h1>
-    <table>
+    <table border="1">
         <tr th:each="movie: ${movies}">
-            <td th:text="${movie.title}"></td>
+            <td>
+                <a th:href="@{/movie/{id}(id=${movie.id})}" th:text="${movie.title}"></a>
+            </td>
             <td th:text="${movie.genre}"></td>
         </tr>
     </table>

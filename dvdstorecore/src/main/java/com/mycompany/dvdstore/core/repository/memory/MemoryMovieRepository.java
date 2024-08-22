@@ -26,4 +26,9 @@ public class MemoryMovieRepository implements MovieRepositoryInterface {
     public List<Movie> list() {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public Movie getById(Long id) {
+        return movieRepository.getById(id);
+    }
 }

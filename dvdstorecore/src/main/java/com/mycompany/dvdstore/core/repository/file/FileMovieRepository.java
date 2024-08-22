@@ -33,6 +33,8 @@ public class FileMovieRepository implements MovieRepositoryInterface {
 
         FileWriter writer;
         try{
+            Long lastId=list().stream().map(Movie::getId).max(Long::compare).orElse(0L);
+            movie.setId(lastId+1);
             writer=new FileWriter(file,true);
             writer.write(movie.getId()+";"+movie.getTitle()+";"+movie.getGenre()+";"+movie.getDescription()+"\n");            writer.close();
         } catch (IOException e) {
@@ -43,7 +45,6 @@ public class FileMovieRepository implements MovieRepositoryInterface {
     @Override
     public List<Movie> list() {
         List<Movie> movies=new ArrayList<>();
-
         try(BufferedReader br = new BufferedReader(new FileReader(file))) {
             for (String line; (line = br.readLine()) != null; ) {
                 final Movie movie = new Movie();
@@ -63,11 +64,8 @@ public class FileMovieRepository implements MovieRepositoryInterface {
     @Override
     public Movie getById(Long id) {
         final Movie movie = new Movie();
-        long lastId=list().stream().map(Movie::getId).max(Long::compare).orElse(0L);
-        movie.setId(lastId+1);
         try(BufferedReader br = new BufferedReader(new FileReader(file))) {
             for(String line; (line = br.readLine()) != null; ) {
-
                 final String[] allProperties = line.split("\\;");
                 final long nextMovieId=Long.parseLong(allProperties[0]);
                 if (nextMovieId==id) {

@@ -29,7 +29,7 @@ public class FileMovieRepository implements MovieRepositoryInterface {
         this.file = file;
     }
 
-    public void add (Movie movie) {
+    public Movie add (Movie movie) {
 
         FileWriter writer;
         try{
@@ -40,6 +40,7 @@ public class FileMovieRepository implements MovieRepositoryInterface {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        return movie;
     }
 
     @Override

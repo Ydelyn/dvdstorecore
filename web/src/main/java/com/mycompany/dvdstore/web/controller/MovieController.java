@@ -24,13 +24,7 @@ public class MovieController {
         return movieService;
     }
 
-    /*@GetMapping("/{id}")
-    public String displayMovieCard(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("movie", movieService.getMovieById(id));
-        return "movie-details";
-    }*/
-
-   /*@PostMapping
+   @PostMapping("/add")
     public String addMovie(@Valid @ModelAttribute MovieForm movieForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "add-movie-form";
@@ -47,5 +41,5 @@ public class MovieController {
         }
         movieService.registerMovie(movie);
         return "movie-added";
-    }*/
+    }
 }

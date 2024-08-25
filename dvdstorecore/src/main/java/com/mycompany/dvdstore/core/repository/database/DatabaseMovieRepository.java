@@ -1,5 +1,5 @@
 package com.mycompany.dvdstore.core.repository.database;
-
+/*
 import com.mycompany.dvdstore.core.entity.Movie;
 import com.mycompany.dvdstore.core.repository.MovieRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,3 +61,4 @@ public class DatabaseMovieRepository implements MovieRepositoryInterface {
                         rs.getString("TITLE"), rs.getString("GENRE"), rs.getString("DESCRIPTION")));
     }
 }
+*/

@@ -5,6 +5,7 @@ import com.mycompany.dvdstore.core.repository.MovieRepositoryInterface;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 //@Repository
 public class MemoryMovieRepository implements MovieRepositoryInterface {
@@ -19,19 +20,64 @@ public class MemoryMovieRepository implements MovieRepositoryInterface {
 
     private List movies=new ArrayList<>();
 
-    public Movie add (Movie movie) {
+    public Movie save(Movie movie) {
         movies.add(movie);
         System.out.println("The movie " +movie.getTitle() + " has been added with the genre " +movie.getGenre());
         return movie;
     }
 
     @Override
-    public List<Movie> list() {
+    public <S extends Movie> Iterable<S> saveAll(Iterable<S> entities) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Movie getById(Long id) {
-        return movieRepository.getById(id);
+    public Optional<Movie> findById(Long aLong) {
+        return movieRepository.findById(aLong);
+    }
+
+    @Override
+    public boolean existsById(Long aLong) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Iterable<Movie> findAll() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Iterable<Movie> findAllById(Iterable<Long> longs) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public long count() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void deleteById(Long aLong) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void delete(Movie entity) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void deleteAllById(Iterable<? extends Long> longs) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void deleteAll(Iterable<? extends Movie> entities) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void deleteAll() {
+        throw new UnsupportedOperationException();
     }
 }

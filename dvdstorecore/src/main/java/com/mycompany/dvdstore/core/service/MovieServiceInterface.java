@@ -5,6 +5,6 @@ import com.mycompany.dvdstore.core.entity.Movie;
 import java.util.List;
 
 public interface MovieServiceInterface {
-    List<Movie> getMovieList();
+    Iterable<Movie> getMovieList();
     Movie getMovieById(Long id);
 }

@@ -2,6 +2,7 @@ package com.mycompany.dvdstore.core.service;
 
 import com.mycompany.dvdstore.core.entity.Movie;
 import com.mycompany.dvdstore.core.repository.MovieRepositoryInterface;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,9 +23,9 @@ public class DefaultMovieService implements MovieServiceInterface{
         return movieRepository;
     }
 
+    @Transactional
     public Movie registerMovie(Movie movie) {
-        movieRepository.save(movie);
-        return movie;
+        return movieRepository.save(movie);
     }
 
     @Override

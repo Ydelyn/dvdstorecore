@@ -13,6 +13,11 @@ public class MovieForm {
     private String genre;
     @Size(max = 255, message = "Entrez une description de 255 caractères au plus")
     private String description;
+    @NotBlank (message = "Veuillez entrer un prénom")
+    @Size(max = 20, message = "Entrez un prénom de moins de 20 caractères")
+    private String firstName;
+    @Size(max = 20, message = "Entrez un nom de moins de 20 caractères")
+    private String lastName;
 
     public Long getId() {
         return id;
@@ -44,5 +49,21 @@ public class MovieForm {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public @NotBlank(message = "Veuillez entrer un prénom") @Size(max = 20, message = "Entrez un prénom de moins de 20 caractères") String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(@NotBlank(message = "Veuillez entrer un prénom") @Size(max = 20, message = "Entrez un prénom de moins de 20 caractères") String firstName) {
+        this.firstName = firstName;
+    }
+
+    public @Size(max = 20, message = "Entrez un nom de moins de 20 caractères") String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(@Size(max = 20, message = "Entrez un nom de moins de 20 caractères") String lastName) {
+        this.lastName = lastName;
     }
 }

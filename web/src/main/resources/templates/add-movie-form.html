@@ -23,6 +23,10 @@
         <div th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"></div>
         <p>Description : <textarea th:field="*{description}"></textarea></p>
         <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+        <p>Prénom : <textarea th:field="*{firstName}"></textarea></p>
+        <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+        <p>Nom : <textarea th:field="*{lastName}"></textarea></p>
+        <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
         <input type="submit" value="OK"/>
     </form>
 </body>

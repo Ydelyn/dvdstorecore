@@ -1,5 +1,6 @@
 package com.mycompany.dvdstore.web.controller;
 
+import com.mycompany.dvdstore.core.entity.Actor;
 import com.mycompany.dvdstore.core.entity.Movie;
 import com.mycompany.dvdstore.core.service.DefaultMovieService;
 import com.mycompany.dvdstore.web.form.MovieForm;
@@ -39,6 +40,8 @@ public class MovieController {
         else {
             movie.setDescription(movieForm.getDescription());
         }
+        Actor actor = new Actor(movieForm.getFirstName(), movieForm.getLastName());
+        movie.setMainActor(actor);
         movieService.registerMovie(movie);
         return "movie-added";
     }

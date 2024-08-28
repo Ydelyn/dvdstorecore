@@ -3,11 +3,8 @@ package com.mycompany.dvdstore.core.repository.file;
 import com.mycompany.dvdstore.core.entity.Movie;
 import com.mycompany.dvdstore.core.repository.MovieRepositoryInterface;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Repository;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.stream.StreamSupport;
 
@@ -52,7 +49,7 @@ public class FileMovieRepository implements MovieRepositoryInterface {
     }
 
     @Override
-    public Optional findById(Long id) {
+    public Optional<Movie> findById(Long id) {
         final Movie movie = new Movie();
         try(BufferedReader br = new BufferedReader(new FileReader(file))) {
             for(String line; (line = br.readLine()) != null; ) {
